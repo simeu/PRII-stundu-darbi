@@ -17,7 +17,7 @@ c.execute("CREATE TABLE IF NOT EXISTS pakalpojumi (Id INTEGER, Nosaukums TEXT, M
 
 # Tabulai Pakalpojumi pievieno ierakstu pakalpojumu "skenēšana" ar cenu "0,50"
 
-c.execute("INSERT INTO biblioteka(7, skenēšana, 0,50) VALUES (?, ?, ?)")
+# c.execute("INSERT INTO biblioteka(7, skenēšana, 0,50) VALUES (?, ?, ?)") <- nestrādā, nezinu, kādēļ.
 
 # Saglabā izmaiņas DB un slēdz savienojumu
 def saglabashana():

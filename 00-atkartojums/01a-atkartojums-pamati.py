@@ -23,6 +23,10 @@ for viensKlases in klases:
     nr = nr + 1
 
 # Parādi no masīva klases tikai ierakstu ar vērtību 12.a --- []
+print(klases[0])
+# nr - klases.index("12. a")
+# print(klases[nr])
+
 
 # Noņem komentāra zīmi iepriekšējai rindai
 # Ja, iedarbinot programmu, ievadītais vārds ir "nē", parādi ekrānā tekstu "Slepenais netika uzrakstīts"
