@@ -13,14 +13,17 @@ def radit():
 
 # Izveido jaunu datubāzes tabulu Pakalpojumi
 # ar šādiem laukiem: id, nosaukums, maksa
-c.execute("CREATE TABLE IF NOT EXISTS pakalpojumi (Id INTEGER, Nosaukums TEXT, Maksa INTEGER)")
+c.execute("CREATE TABLE IF NOT EXISTS Pakalpojumi (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nosaukums TEXT, maksa REAL)")
+conn.commit()
 
 # Tabulai Pakalpojumi pievieno ierakstu pakalpojumu "skenēšana" ar cenu "0,50"
-
-# c.execute("INSERT INTO biblioteka(7, skenēšana, 0,50) VALUES (?, ?, ?)") <- nestrādā, nezinu, kādēļ.
+skenesana = ("skenēšana", "0.5")
+c.execute("INSERT INTO Pakalpojumi(nosaukums, maksa) VALUES (?, ?)", skenesana)
 
 # Saglabā izmaiņas DB un slēdz savienojumu
 def saglabashana():
     conn.commit()
     c.close()
     conn.close()
+
+saglabashana()

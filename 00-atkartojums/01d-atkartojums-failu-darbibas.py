@@ -17,7 +17,7 @@ paradisana()
 def ierakstishana():
     if not os.path.exists("ogas_un_darzeni.json"):
         ediens = ""
-        dati = json.dumps(ediens)
+        dati = json.dumps(oga, ensure_ascii=False)
         with open ("ogas_un_darzeni.json", "w", encoding = "utf-8") as fails:
             fails.write(dati)
 

@@ -19,7 +19,7 @@ import os
 
 
 def fizzbuzz():
-    print("Sveicināts(-a)! Šis būs ārkārtīgi sarežģītais testa veida uzdevums, kurš tev jaatrisina.\nJa tu to nespēsi atrisināt, tad tu esi dārzenis. :)")
+    print("Sveicināts(-a)! Esmu visgudrākais AI - Maikls. Šis būs ārkārtīgi sarežģītais testa veida uzdevums, kurš tev jaatrisina.\nJa tu to nespēsi atrisināt, tad tu esi dārzenis. :)")
     v = input(print("Vai matemātiku zini? J/N"))
     d = input(print("Vai zini, kas ir dalīšana? J/N"))
     if d == "J" or "j":
