@@ -21,16 +21,16 @@ class Restorans:
             self.apkalpoto_skaits += skaits
         print(f"Dienā apkalpoto cilvēku skaits - {self.apkalpoto_skaits}")
 
-restorans1 = Restorans("Kuhnja", "franču virtuve")
-print(restorans1.restorana_nosaukums, restorans1.virtuves_tips, restorans1.apkalpoto_skaits)
-restorans1.restorans_atverts()
-restorans1.restorana_apraksts()
-restorans2 = Restorans("Eleon", "itāļu virtuve")
-restorans3 = Restorans("Grand", "spāņu virtuve")
-restorans2.restorana_apraksts()
-restorans3.restorana_apraksts()
-restorans1.iestatit_apkalpoto_skaitu(5)
-restorans1.palielinat_apkalpoto_skaitu(7)
+# restorans1 = Restorans("Kuhnja", "franču virtuve")
+# print(restorans1.restorana_nosaukums, restorans1.virtuves_tips, restorans1.apkalpoto_skaits)
+# restorans1.restorans_atverts()
+# restorans1.restorana_apraksts()
+# restorans2 = Restorans("Eleon", "itāļu virtuve")
+# restorans3 = Restorans("Grand", "spāņu virtuve")
+# restorans2.restorana_apraksts()
+# restorans3.restorana_apraksts()
+# restorans1.iestatit_apkalpoto_skaitu(5)
+# restorans1.palielinat_apkalpoto_skaitu(7)
 
 class SaldejumaKiosks(Restorans):
     def __init__(self, restorana_nosaukums, virtuves_tips, apkalpoto_skaits=0):

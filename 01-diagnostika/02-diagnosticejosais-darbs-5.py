@@ -19,8 +19,7 @@ class Gramata:
         self.autors = "Maigonis"
         print(f"Nosaukums: {self.nosaukums} Autors: {self.autors}")
         
-    paradit(self)
-
+    paradit()
 # class gramata:
     # def __init__ (self):
 
