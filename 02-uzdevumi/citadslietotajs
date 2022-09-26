@@ -1,0 +1,6 @@
+from lietotajs import Lietotajs
+from lietotajs import Privilegijas
+from lietotajs import Admin
+
+paradit_privilegijas()
+print(paradit_privilegijas())

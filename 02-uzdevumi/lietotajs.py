@@ -18,23 +18,23 @@ class Lietotajs:
     def atiestatit_pieteiksanos_skaitu(self):
         self.pieteiksanos_skaits = 0
 
-nikola = Lietotajs ("Nikola", "Skuja", 17, "latviešu")
-druvis = Lietotajs ("Druvis", "Liepa", 34,"angļu")
-mudite = Lietotajs ("Mudīte", "Gulbe", 67, "krievu")
-nikola.lietotaja_apraksts()
-druvis.lietotaja_apraksts()
+simona = Lietotajs ("Simona", "Baumane", 18, "latviešu")
+maris = Lietotajs ("Māris", "Lielpēdis", 34,"krievu")
+mudite = Lietotajs ("Mudīte", "Spriņģe", 67, "angļu")
+simona.lietotaja_apraksts()
+maris.lietotaja_apraksts()
 mudite.lietotaja_apraksts()
-nikola.sasveicinies()
-druvis.sasveicinies()
+simona.sasveicinies()
+maris.sasveicinies()
 mudite.sasveicinies()
-nikola.palielinat_pieteiksanos_skaitu()
-nikola.palielinat_pieteiksanos_skaitu()
-nikola.palielinat_pieteiksanos_skaitu()
-nikola.palielinat_pieteiksanos_skaitu()
-nikola.palielinat_pieteiksanos_skaitu()
-print(nikola.pieteiksanos_skaits)
-nikola.atiestatit_pieteiksanos_skaitu()
-print(nikola.pieteiksanos_skaits)
+simona.palielinat_pieteiksanos_skaitu()
+simona.palielinat_pieteiksanos_skaitu()
+simona.palielinat_pieteiksanos_skaitu()
+simona.palielinat_pieteiksanos_skaitu()
+simona.palielinat_pieteiksanos_skaitu()
+print(simona.pieteiksanos_skaits)
+simona.atiestatit_pieteiksanos_skaitu()
+print(simona.pieteiksanos_skaits)
 
 class Privilegijas:
     def __init__(self):
@@ -51,7 +51,7 @@ class Admin(Lietotajs):
     def paradit_privilegijas(self):
         print(f"{self.privilegijas}")
 
-katrina = Admin("Katrīna", "Ločmele", "17", "latviešu")
+katrina = Admin("Katrīna", "Lielpēde", "35", "latviešu")
 #katrina.paradit_privilegijas()
 print(katrina.privilegijas.paradit_privilegijas())
 
