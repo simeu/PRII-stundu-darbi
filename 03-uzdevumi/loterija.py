@@ -1,17 +1,26 @@
 import random 
 
-loterija_nr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-loterija_br = ["a", "b", "c", "d", "e"]
+simboli = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "a", "b", "c", "d", "e"]
 
-def loterija():
-    print(random.choice(list(loterija_nr)))
-    print(random.choice(list(loterija_nr)))
-    print(random.choice(list(loterija_nr)))
-    print(random.choice(list(loterija_nr)))
-    print(random.choice(list(loterija_br)))
+def uzvarejusi_bilete():
+    bilete = []
+    for i in range(4):
+        sim = random.choice(simboli)
+        bilete.append(sim)
+    return bilete
 
-loterija()
+mana_bilete = uzvarejusi_bilete()
+cik = 0
+uzvara = False
 
-def loterija_analize():
-    mana_bilete = [6, 9,"B", 1]
-    
+# for i in range(1000000):
+while not uzvara:
+    if uzvarejusi_bilete == mana_bilete:
+        print("Uzvarēji!!!")
+        print(f"Tam vajadzēja {cik+1} mēginājumus.")
+    else:
+        cik += 1
+        
+
+
+print(uzvarejusi_bilete())
