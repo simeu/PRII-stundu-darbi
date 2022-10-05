@@ -1,21 +1,22 @@
 import random
 
 class Kaulins:
-    def __init__(self, skaldne):
+    def __init__(self, skaldne = 6):
         self.skaldne = skaldne
 
-    skaldne1 = 6
-    skaldne2 = 10
-    skaldne3 = 20
+    def mest_kaulinu(self):
+        return random.randint(1, self.skaldne+1)
 
-    def mest_kaulinu(skaldne1, skaldne2, skaldne3):
-        nr = random.randint(1, skaldne1)
-        print(nr)
-        nr2 = random.randint(1, skaldne2)
-        print(nr2)
-        nr3 = random.randint(1, skaldne3)
-        print(nr3)
+k10 = Kaulins(10)
+rezultati = []
+for i in range(10):
+    rezultati.append(k10.mest_kaulinu())
+print(rezultati)
 
-    mest_kaulinu(skaldne1, skaldne2, skaldne3)
+k20 = Kaulins(20)
+rezultati1 = []
+for i in range(20):
+    rezultati1.append(k20.mest_kaulinu())
+print(rezultati1)
 
     

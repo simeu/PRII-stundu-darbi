@@ -1,0 +1,20 @@
+import PySimpleGUI as sg
+
+# sg.theme_previewer()
+
+izkartojums = [
+[sg.Text("Username"), sg.Input(key = "-USER-")],
+[sg.Text("Password"), sg.Input(key = "-PASS-")],
+[sg.Button("OK"), sg.Text(key = "-X-")]
+]
+
+logs = sg.Window("Log-in", izkartojums)
+
+while True:
+    notikums, vertibas = logs.read()
+    if notikums == sg.WINDOW_CLOSED:
+        break
+    if notikums == "OK":
+        print("Poga strādā!!!")
+   # elif notikums == "OK":
+        # logs["-X-"].update(values["-USER"])
