@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-# sg.theme_previewer()
+#sg.theme_previewer()
 
 izkartojums = [
 [sg.Text("Username"), sg.Input(key = "-USER-")],
@@ -12,9 +12,13 @@ logs = sg.Window("Log-in", izkartojums)
 
 while True:
     notikums, vertibas = logs.read()
+    print(notikums, vertibas)
     if notikums == sg.WINDOW_CLOSED:
         break
     if notikums == "OK":
-        print("Poga strādā!!!")
-   # elif notikums == "OK":
-        # logs["-X-"].update(values["-USER"])
+        vards = vertibas["-USER-"]
+        uzvards = vertibas["-PASS-"]
+        vardsuzvards = f"{vards}, {uzvards}"
+        logs["-X-"].update(vardsuzvards)
+
+logs.close()
