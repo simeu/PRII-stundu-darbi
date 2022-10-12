@@ -43,8 +43,4 @@ while True:
         masina.palielinat_nobraukumu(nobraukums)
         masina.paradit()
 
-
-
-
-
 logs.close()
