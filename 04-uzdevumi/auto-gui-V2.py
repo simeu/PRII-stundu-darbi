@@ -14,8 +14,9 @@ layout = [
     # [sg.Text("Krāsa"), sg.Combo(values=krasas, key="-KRASA-")],
     [sg.CalendarButton("Iegādes datums", target = "-DATUMS-", format="%Y-%m-%d", locale="lv_LV", begin_at_sunday_plus=1), sg.Input(key = "-DATUMS-")],
     # [sg.Text("Iegādes datums", size=12), sg.Input(key = "-DATUMS-")],
-    [sg.Button("Saglabāt", size=12), sg.Button("Palielināt nobraukumu", size=23, key="-PALIELINAT-"), sg.Button("Iziet", size=12)],
+    [sg.Button("Saglabāt", size=12), sg.Button("Palielināt nobraukumu", size=23, key="-PALIELINAT-"), sg.Button("Iziet", size=12)], [sg.Button("Saglabāt kā JSON",size = 12)], [sg.Button("Saglabāt kā TXT", size = 12)],
     [sg.Text(key = "-APRAKSTS-")]
+
 ]
 
 window = sg.Window("Auto", layout)
@@ -45,5 +46,13 @@ while True:
 
         masina.palielinat_nobraukumu(nobraukuma_izmainas)
         masina.paradit()
+    
+    if event == "Saglabāt kā JSON":
+        masina.veido_vardnicu()
+        masina.saglabat_json()
+        masina.paradit()
+
+    if event == "Saglabāt kā TXT":
+        masina.saglabat()
 
 window.close()

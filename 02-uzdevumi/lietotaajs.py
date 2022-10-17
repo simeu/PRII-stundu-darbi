@@ -1,3 +1,5 @@
+import json
+
 class Lietotajs:
     def __init__(self, vards, uzvards, vecums, valoda, pieteiksanos_skaits=0):
         self.vards = vards
@@ -51,7 +53,16 @@ class Admin(Lietotajs):
     def paradit_privilegijas(self):
         print(f"{self.privilegijas}")
 
+    def saglabat_json(self):
+        dati = self.veido_vardnicu()
+        datiJSON = json.dumps(dati)
+        nosauk = f"{self.razotajs}-{self.modelis}-{self.gads}"
+        with open("auto.json", "w", encoding="utf-8") as f:
+            f.write(datiJSON)
+
 katrina = Admin("Katrīna", "Ločmele", "17", "latviešu")
 #katrina.paradit_privilegijas()
 print(katrina.privilegijas.paradit_privilegijas())
+
+
 

@@ -1,5 +1,6 @@
 from datetime import datetime
 sodien = datetime.now()
+import json
 
 class Auto:
     def __init__ (self, razotajs, modelis, cena, gads, iegades_datums, nobraukums = 0):
@@ -34,10 +35,17 @@ class Auto:
         print(f'Degviela ir ielieta')
 
     def veido_vardnicu(self):
-        pass
+        dati = self.__dict__
+        return dati
 
     def saglabat_json(self):
-        pass
+        dati = self.veido_vardnicu()
+        datiJSON = json.dumps(dati)
+        nosauk = f"{self.razotajs}-{self.modelis}-{self.gads}"
+        with open("auto.json", "w", encoding="utf-8") as f:
+            f.write(datiJSON)
 
     def saglabat(self):
-        pass
+        dati = self.paradit()
+        with open("auto.txt", "w", encoding = "utf-8") as f:
+            f.write(dati)
