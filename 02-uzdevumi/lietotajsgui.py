@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import lietotaajs as li
-from fpdf import FPDF
+# from fpdf import FPDF
 
 sg.theme("Black")
 
@@ -56,10 +56,10 @@ while True:
         lietotajs.saglabat_json()
         lietotajs.sasveicinies()
 
-    if notikums == "Saglabāt kā PDF":
-        lietotajs.veido_vardnicu()
-        lietotajs.saglabat_pdf() # Rāda error'u "Lietotajs is not defined", kaut vai ja tas ir definēts.
-        lietotajs.sasveicinies()
+    # if notikums == "Saglabāt kā PDF":
+        # lietotajs.veido_vardnicu()
+        # lietotajs.saglabat_pdf() # Rāda error'u "Lietotajs is not defined", kaut vai ja tas ir definēts.
+        # lietotajs.sasveicinies()
 
     if notikums == "About":
         sg.popup("Hello, World!")

@@ -1,5 +1,5 @@
 import json
-from fpdf import FPDF
+# from fpdf import FPDF
 
 class Lietotajs:
     def __init__(self, vards, uzvards, vecums, valoda, pieteiksanos_skaits=0):
@@ -32,16 +32,16 @@ class Lietotajs:
         with open(nosaukums, "w", encoding="utf-8") as f:
             f.write(datiJSON)
 
-    def saglabat_pdf(self):
-        pdf = FPDF()
-        pdf.add_page()
-        pdf.set_font("Arial", size=12)
-        pdf.cell(200, 10, txt="Lietotaji", ln=1, align="C")
-        pdf.cell(200, 10, txt="Lietotajvārds: " + self.vards, ln=1, align="L")
-        pdf.cell(200, 10, txt="Vards, Uzvards: " + self.uzvards, ln=1, align="L")
-        pdf.cell(200, 10, txt="Vecums: " + str(self.vecums), ln=1, align="L")
-        pdf.cell(200, 10, txt="Valoda: " + self.valoda, ln=1, align="L")
-        pdf.output("lietotajs.pdf")
+    # def saglabat_pdf(self):
+        # pdf = FPDF()
+        # pdf.add_page()
+        # pdf.set_font("Arial", size=12)
+        # pdf.cell(200, 10, txt="Lietotaji", ln=1, align="C")
+        # pdf.cell(200, 10, txt="Lietotajvārds: " + self.vards, ln=1, align="L")
+        # pdf.cell(200, 10, txt="Vards, Uzvards: " + self.uzvards, ln=1, align="L")
+        # pdf.cell(200, 10, txt="Vecums: " + str(self.vecums), ln=1, align="L")
+        # pdf.cell(200, 10, txt="Valoda: " + self.valoda, ln=1, align="L")
+        # pdf.output("lietotajs.pdf")
 
 nikola = Lietotajs ("Nikola", "Skuja", 17, "latviešu")
 druvis = Lietotajs ("Druvis", "Liepa", 34,"angļu")
