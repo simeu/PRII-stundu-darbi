@@ -19,7 +19,7 @@ class Gramata():
         dati = self.__dict__
         return dati
 
-    def saglabat():
+    def saglabat(self):
         dati = json.dumps()
         with open("gramatas.json", "w", encoding="utf-8")as f:
             f.write(dati)
