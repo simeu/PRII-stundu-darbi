@@ -12,6 +12,25 @@ def razotaju_saraksts():
     razotaji = c.fetchall()
     return razotaji
 
+
+
+def masinu_saraksts():
+    vaicajums = """
+    SELECT Mashiinas.ID, Razotaji.Nosaukums, Mashiinas.Modelis
+    FROM Mashiinas
+    INNER JOIN Razotaji  
+    ON Mashiinas.Razotaja_ID = Razotaji.ID
+    """
+    c.execute(vaicajums)
+    masinas = c.fetchall()
+
+    masinas_salona_list = []
+    for katrs in masinas:
+        ieraksts = (' '.join(map(str, katrs)))
+        masinas_salona_list.append(ieraksts)
+    return masinas_salona_list
+
+mashiinas = masinu_saraksts()
 razotaji = razotaju_saraksts()
 krasas = ["Melna", "Balta"]
 
@@ -46,8 +65,8 @@ layout3 = [
 
 # salona darbs
 layout4 = [
-    # [sg.Text("Auto", size=12), sg.Combo(key="-TRANSPORTLIDZEKLIS-")],
-    [sg.Text("Auto", size=12), sg.Input(key="-TRANSPORTLIDZEKLIS-")],
+    [sg.Text("Auto", size=12), sg.Combo(values = mashiinas, key="-TRANSPORTLIDZEKLIS-")],
+    # [sg.Text("Auto", size=12), sg.Input(key="-TRANSPORTLIDZEKLIS-")],
     # [sg.Text("Darbinieks", size=12), sg.Combo(key="-DARBINIEKS-")],
     [sg.Text("Darbinieks", size=12), sg.Input(key="-DARBINIEKS-")],
     [sg.Text("Veiktais darbs", size=12), sg.Input(key = "-DARBS-")],
@@ -147,7 +166,22 @@ while True:
         print(transportlidzekli)
 
     if event == "-SAGLABAT-SALONS-":
-        pass
+        auto = values["-TRANSPORTLIDZEKLIS-"]
+        darbinieks = values["-DARBINIEKS-"]
+        darbs = values["-DARBS-"]
+        datums = values["-DATUMS-"]
+        ilgums = int(values["-ILGUMS-"])
+
+        auto_ID = int(auto.split(" ", 1)[0])
+        darbinieks_ID_SEL = f"SELECT ID FROM Darbinieki WHERE Vards LIKE \"{darbinieks}\" "
+
+        c.execute(darbinieks_ID_SEL)
+        darbinieka_ID = c.fetchall()[0][0]
+
+        pievienosanai = (auto_ID, darbinieka_ID, darbs, datums, ilgums)
+
+        c.execute("INSERT INTO Salons (Auto_ID, Darbinieka_ID, Veiktais_darbs, Datums, Ilgums) VALUES (?, ?, ?, ?, ?)", pievienosanai)
+        conn.commit()
 
     if event == "-PARADIT-SALONU-":
         vaicajums = """
