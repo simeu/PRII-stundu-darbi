@@ -4,10 +4,17 @@ import sqlite3
 conn = sqlite3.connect("picas.db")
 c = conn.cursor
 
-picas = []
-izmeri = []
-klienti = []
-piegade = []
+picas = ["Margarita", "Toskāna", "Mafija", "Četri gadalaiki"]
+izmeri = ["20", "30", "50", "60"]
+klienti = ["Māris Briedis", "Krišs Matisons", "Ainārs Regressus", "Lotārs Mammietis"]
+piegade = ["Bolt", "Wolt", "Cits kurjers", "Pakaļ-atnākšana"]  
+
+def pasut_saraksts():  
+    c.execute("SELECT pasutijumi FROM picas")
+    razotaji = c.fetchall()
+    print(razotaji)
+    return razotaji
+
 
 # pasūtījuma forma
 layout1 = [
@@ -15,7 +22,7 @@ layout1 = [
     [sg.Text("Izmērs:"), sg.Combo(values=izmeri, key="-IZM-PASUT-")],
     [sg.Text("Klients:"), sg.Combo(values=klienti, key="-KLIENTS-PASUT-")],
     [sg.Text("Piegāde:"), sg.Combo(values=piegade, key="-PIEGADE-PASUT-")],
-    [sg.Button("Pasūtīt"), sg.Button("Parādīt pasūtījumu(-s)")],
+    [sg.Button("Pasūtīt", key = "-RADIT-"), sg.Button("Parādīt pasūtījumu(-s)")],
     [sg.HSep()],
     [sg.Text(key="-PASUTIJUMA-TEKSTS-")]
 ]
@@ -72,20 +79,13 @@ while True:
         pizzaDB = (pasutijums)
         c.execute("INSERT INTO pasutijumi (picas_ar_cenu, klienta_id, piegades_veids) VALUES (?,?,?)", (pizzaDB,))
         conn.commit()
-        window.find_element(")
+        window.find_element("-RADIT-").update(values = pasut_saraksts())
 
-        """
-        ērtības labad te un arī pie pārejiem event, izmantotie key nosaukumi
-        "-KLIENTS-PASUT-"
-        "-PIEGADE-PASUT-"        
-        """
-        pass
-
-    if event == "Parādīt pasūtījumu(-s)":
-        """
-        "-PASUTIJUMA-TEKSTS-"
-        """
-        pass
+    if event == "-PASUTIJUMA-TEKSTS-":
+        c.execute("SELECT * FROM pasutijumi")
+        txt = c.fetchall()
+        for viens in txt:
+            print(viens)
 
     if event == "-NOSAUKUMA-PIEVIENOSANA-":
         """
