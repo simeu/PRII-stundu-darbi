@@ -8,7 +8,14 @@ def pirmais():
 pirmais()
 
 def otrais():
-    pass
+    saraksts = [i for i in range(1, 21)]
+    print(saraksts)
+    kvadrati = [i**2 for i in saraksts]
+    print(kvadrati)
+    vard = {}
+    for i in range(20):
+        vard[saraksts[i]] = kvadrati[i]
+otrais()
 
 def tresais():
     pass
