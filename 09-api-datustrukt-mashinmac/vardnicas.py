@@ -18,8 +18,31 @@ def otrais():
 otrais()
 
 def tresais():
-    pass
+    sk = {}
+    for i in range(1, 101):
+        sk[i] = sum(range(1, i + 1))
+        print(sk)
+
+tresais()
+
 
 def ceturtais():
-    pass
+    pirmskaitli = {1:2, 2:3, 3:5, 4:7, 5:11, 6:13, 7:17}
+    numurs = {}
+    for i in pirmskaitli:
+        numurs[i] = (pirmskaitli[i], pirmskaitli[i] ** 2)
+        print(numurs)
+
+ceturtais()
+
+def piektais():
+    tulkojums1 = {0: "nulle", 1: "viens", 2: "divi"}
+    tulkojums2 = {3: "trīs", 4: "četri", 5: "pieci"}
+    tulkojums3 = {6: "seši", 7: "septiņi", 8: "astoņi"}
+    kopaa = {**tulkojums1, **tulkojums2, **tulkojums3}
+    print(kopaa)
+
+piektais()
+
+
 
